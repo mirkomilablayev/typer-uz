@@ -239,15 +239,15 @@ function App() {
           </div>
           <div className="nav-divider"></div>
           <div className="nav-group">
-            {[15, 30, 60].map(v => (
-              <button key={v} className={`nav-item ${mode === 'time' && modeValue === v ? 'active' : ''}`} onClick={() => handleModeChange('time', v)}>{v}</button>
-            ))}
-          </div>
-          <div className="nav-divider"></div>
-          <div className="nav-group">
-            {[10, 25, 50, 100].map(v => (
-              <button key={v} className={`nav-item ${mode === 'words' && modeValue === v ? 'active' : ''}`} onClick={() => handleModeChange('words', v)}>{v}</button>
-            ))}
+            {mode === 'time' ? (
+              [15, 30, 60, 120].map(v => (
+                <button key={v} className={`nav-item ${modeValue === v ? 'active' : ''}`} onClick={() => setModeValue(v)}>{v}</button>
+              ))
+            ) : (
+              [10, 25, 50, 100].map(v => (
+                <button key={v} className={`nav-item ${modeValue === v ? 'active' : ''}`} onClick={() => setModeValue(v)}>{v}</button>
+              ))
+            )}
           </div>
           <div className="nav-divider"></div>
           <div className="nav-group">
