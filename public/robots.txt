@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://typer.uz/sitemap.xml
+Host: https://typer.uz
