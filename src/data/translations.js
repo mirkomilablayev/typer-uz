@@ -11,7 +11,7 @@ export const translations = {
             rare: 'kamyob',
             technical: 'texnik',
         },
-        support: 'yordam',
+        support: 'donat',
         restart: 'Testni qayta boshlash',
         shortcutHint: '<span class="key">Tab</span> yoki <span class="key">Esc</span> qayta boshlash uchun &nbsp;&bull;&nbsp; <span class="key">F</span> chalg\'itmaslik rejimi uchun',
         results: {
@@ -42,7 +42,7 @@ export const translations = {
             rare: 'редкие',
             technical: 'технические',
         },
-        support: 'поддержка',
+        support: 'пожертвование',
         restart: 'Начать заново',
         shortcutHint: '<span class="key">Tab</span> или <span class="key">Esc</span> — сброс &nbsp;&bull;&nbsp; <span class="key">F</span> — режим без отвлечений',
         results: {
@@ -73,7 +73,7 @@ export const translations = {
             rare: 'rare',
             technical: 'technical',
         },
-        support: 'support',
+        support: 'donation',
         restart: 'Restart Test',
         shortcutHint: '<span class="key">Tab</span> or <span class="key">Esc</span> to restart &nbsp;&bull;&nbsp; <span class="key">F</span> for distraction-free mode',
         results: {
