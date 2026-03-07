@@ -27,6 +27,8 @@ function App() {
     }
   }, [location.pathname]);
 
+  const t = translations[lang];
+
   // Track Language Switch
   useEffect(() => {
     if (isFirstMount.current) {
