@@ -312,16 +312,19 @@ body::before {
   position: relative;
   text-align: left;
   color: var(--text-upcoming);
-  min-height: 9rem;
-  height: auto;
+  /* 2 lines of text (2rem * 1.5 * 2 = 6rem) + a bit of gap */
+  height: 6.5rem;
   overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
 }
 
 .words-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  row-gap: 0.5rem;
+  row-gap: 0.1rem;
+  transition: transform 0.25s ease-out;
 }
 
 .word {

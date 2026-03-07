@@ -115,25 +115,6 @@ function App() {
     }
   }, [handleInput, isFinished]);
 
-  const handleRestart = useCallback(() => {
-    reset();
-    testStartedRef.current = false;
-    const wordCount = mode === 'words' ? modeValue : 100;
-    setTargetText(generateTargetText({
-      count: wordCount,
-      difficulty,
-      includePunctuation,
-      includeNumbers
-    }));
-    setIsDistractionFree(false);
-    if (containerRef.current) containerRef.current.focus();
-  }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers]);
-
-  // If settings change, restart
-  useEffect(() => {
-    handleRestart();
-  }, [mode, modeValue, difficulty, includePunctuation, includeNumbers, handleRestart]);
-
   // Split text into words for better rendering
   const wordsArray = useMemo(() => targetText.split(' '), [targetText]);
 
@@ -156,6 +137,44 @@ function App() {
   charProcessedRef.current = 0;
 
   const isTyping = userInput.length > 0;
+
+  // Scrolling Logic
+  const [translateY, setTranslateY] = useState(0);
+  const wordsWrapperRef = useRef(null);
+  const currentWordRef = useRef(null);
+
+  useEffect(() => {
+    if (currentWordRef.current && wordsWrapperRef.current) {
+      const wordTop = currentWordRef.current.offsetTop;
+      // If word is on a new line (beyond first line), scroll up
+      // One line is roughly 48px (3rem)
+      if (wordTop > 40) {
+        setTranslateY(-(wordTop - 5)); // 5px buffer
+      } else {
+        setTranslateY(0);
+      }
+    }
+  }, [currentWordIndex]);
+
+  const handleRestart = useCallback(() => {
+    reset();
+    testStartedRef.current = false;
+    setTranslateY(0);
+    const wordCount = mode === 'words' ? modeValue : 200;
+    setTargetText(generateTargetText({
+      count: wordCount,
+      difficulty,
+      includePunctuation,
+      includeNumbers
+    }));
+    setIsDistractionFree(false);
+    if (containerRef.current) containerRef.current.focus();
+  }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers]);
+
+  // If settings change, restart
+  useEffect(() => {
+    handleRestart();
+  }, [mode, modeValue, difficulty, includePunctuation, includeNumbers, handleRestart]);
 
   // Copy to clipboard helper
   const copyToClipboard = (text) => {
@@ -220,15 +239,15 @@ function App() {
           </div>
           <div className="nav-divider"></div>
           <div className="nav-group">
-            {mode === 'time' ? (
-              [15, 30, 60, 120].map(v => (
-                <button key={v} className={`nav-item ${modeValue === v ? 'active' : ''}`} onClick={() => setModeValue(v)}>{v}</button>
-              ))
-            ) : (
-              [10, 25, 50, 100].map(v => (
-                <button key={v} className={`nav-item ${modeValue === v ? 'active' : ''}`} onClick={() => setModeValue(v)}>{v}</button>
-              ))
-            )}
+            {[15, 30, 60].map(v => (
+              <button key={v} className={`nav-item ${mode === 'time' && modeValue === v ? 'active' : ''}`} onClick={() => handleModeChange('time', v)}>{v}</button>
+            ))}
+          </div>
+          <div className="nav-divider"></div>
+          <div className="nav-group">
+            {[10, 25, 50, 100].map(v => (
+              <button key={v} className={`nav-item ${mode === 'words' && modeValue === v ? 'active' : ''}`} onClick={() => handleModeChange('words', v)}>{v}</button>
+            ))}
           </div>
           <div className="nav-divider"></div>
           <div className="nav-group">
@@ -263,14 +282,22 @@ function App() {
 
         {/* Typing Area */}
         <div className="typing-area">
-          <div className="words-wrapper">
+          <div
+            className="words-wrapper"
+            ref={wordsWrapperRef}
+            style={{ transform: `translateY(${translateY}px)` }}
+          >
             {wordsArray.map((word, wordIdx) => {
               const isCurrent = wordIdx === currentWordIndex;
               const wordStartIdx = charProcessedRef.current;
               charProcessedRef.current += word.length + 1;
 
               return (
-                <span key={wordIdx} className={`word ${isCurrent ? 'current' : ''}`}>
+                <span
+                  key={wordIdx}
+                  ref={isCurrent ? currentWordRef : null}
+                  className={`word ${isCurrent ? 'current' : ''}`}
+                >
                   {word.split('').map((char, charIdx) => {
                     const absoluteIdx = wordStartIdx + charIdx;
                     let charClass = 'char';
