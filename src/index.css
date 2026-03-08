@@ -161,9 +161,10 @@ body::before {
 /* Brand Header */
 .brand-header {
   position: absolute;
-  top: 2rem;
-  left: 3rem;
-  right: 3rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -201,8 +202,9 @@ body::before {
 }
 
 .logo-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 10px rgba(226, 183, 20, 0.3));
 }
 
 .brand-right {
@@ -630,9 +632,7 @@ body::before {
   animation: shake 0.2s ease-in-out;
 }
 
-.mistake-flash {
-  /* Subtle flash effect if needed */
-}
+
 
 /* Donation Section */
 .donation-grid {

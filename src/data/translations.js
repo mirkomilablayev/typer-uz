@@ -13,7 +13,7 @@ export const translations = {
         },
         support: 'donat',
         restart: 'Testni qayta boshlash',
-        shortcutHint: '<span class="key">Tab</span> yoki <span class="key">Esc</span> qayta boshlash uchun &nbsp;&bull;&nbsp; <span class="key">F</span> chalg\'itmaslik rejimi uchun',
+        shortcutHint: '<span class="key">Tab</span> yoki <span class="key">Esc</span> qayta boshlash uchun',
         results: {
             wpm: 'wpm',
             acc: 'aniqlik',
@@ -44,7 +44,7 @@ export const translations = {
         },
         support: 'пожертвование',
         restart: 'Начать заново',
-        shortcutHint: '<span class="key">Tab</span> или <span class="key">Esc</span> — сброс &nbsp;&bull;&nbsp; <span class="key">F</span> — режим без отвлечений',
+        shortcutHint: '<span class="key">Tab</span> или <span class="key">Esc</span> — сброс',
         results: {
             wpm: 'wpm',
             acc: 'точн.',
@@ -75,7 +75,7 @@ export const translations = {
         },
         support: 'donation',
         restart: 'Restart Test',
-        shortcutHint: '<span class="key">Tab</span> or <span class="key">Esc</span> to restart &nbsp;&bull;&nbsp; <span class="key">F</span> for distraction-free mode',
+        shortcutHint: '<span class="key">Tab</span> or <span class="key">Esc</span> to restart',
         results: {
             wpm: 'wpm',
             acc: 'acc',

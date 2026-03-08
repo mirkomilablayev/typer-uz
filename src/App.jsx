@@ -103,17 +103,30 @@ function App() {
   }, []);
 
   // Keyboard Shortcuts (Esc, Tab, F)
+  const handleRestart = useCallback(() => {
+    reset();
+    testStartedRef.current = false;
+    setTranslateY(0);
+    const wordCount = mode === 'words' ? modeValue : 200;
+    setTargetText(generateTargetText({
+      count: wordCount,
+      difficulty,
+      includePunctuation,
+      includeNumbers
+    }));
+    setIsDistractionFree(false);
+    if (containerRef.current) containerRef.current.focus();
+  }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers]);
+
+  // Keyboard Shortcuts (Esc, Tab)
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape' || e.key === 'Tab') {
       e.preventDefault();
       handleRestart();
-    } else if (e.key.toLowerCase() === 'f' && !isFinished) {
-      e.preventDefault();
-      setIsDistractionFree(prev => !prev);
     } else {
       handleInput(e.key);
     }
-  }, [handleInput, isFinished]);
+  }, [handleInput, handleRestart]);
 
   // Split text into words for better rendering
   const wordsArray = useMemo(() => targetText.split(' '), [targetText]);
@@ -156,20 +169,7 @@ function App() {
     }
   }, [currentWordIndex]);
 
-  const handleRestart = useCallback(() => {
-    reset();
-    testStartedRef.current = false;
-    setTranslateY(0);
-    const wordCount = mode === 'words' ? modeValue : 200;
-    setTargetText(generateTargetText({
-      count: wordCount,
-      difficulty,
-      includePunctuation,
-      includeNumbers
-    }));
-    setIsDistractionFree(false);
-    if (containerRef.current) containerRef.current.focus();
-  }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers]);
+
 
   // If settings change, restart
   useEffect(() => {
@@ -200,17 +200,22 @@ function App() {
       <header className={`brand-header ${isDistractionFree && isTyping ? 'hidden' : ''}`}>
         <div className="brand-left">
           <div className="logo-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-              <line x1="6" y1="8" x2="6.01" y2="8"></line>
-              <line x1="10" y1="8" x2="10.01" y2="8"></line>
-              <line x1="14" y1="8" x2="14.01" y2="8"></line>
-              <line x1="18" y1="8" x2="18.01" y2="8"></line>
-              <line x1="6" y1="12" x2="6.01" y2="12"></line>
-              <line x1="10" y1="12" x2="10.01" y2="12"></line>
-              <line x1="14" y1="12" x2="14.01" y2="12"></line>
-              <line x1="18" y1="12" x2="18.01" y2="12"></line>
-              <line x1="7" y1="16" x2="17" y2="16"></line>
+            <svg width="28" height="28" viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="4" fill="#e2b714" />
+              <g fill="#111111">
+                <rect x="5" y="7" width="2" height="2" rx="0.5" />
+                <rect x="8" y="7" width="2" height="2" rx="0.5" />
+                <rect x="11" y="7" width="2" height="2" rx="0.5" />
+                <rect x="14" y="7" width="2" height="2" rx="0.5" />
+                <rect x="17" y="7" width="2" height="2" rx="0.5" />
+                <rect x="5" y="10" width="2" height="2" rx="0.5" />
+                <rect x="8" y="10" width="2" height="2" rx="0.5" />
+                <rect x="11" y="10" width="2" height="2" rx="0.5" />
+                <rect x="14" y="10" width="2" height="2" rx="0.5" />
+                <rect x="17" y="10" width="2" height="2" rx="0.5" />
+                <rect x="5" y="13" width="2" height="2" rx="0.5" />
+                <rect x="8" y="11" width="11" height="2" rx="0.5" transform="translate(0, 2)" />
+              </g>
             </svg>
           </div>
           <h1 className="brand-name">Typer.uz</h1>
