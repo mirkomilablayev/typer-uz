@@ -752,6 +752,26 @@ body::before {
   margin-top: 1rem;
 }
 
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Specific styling for logos with backgrounds */
+img[alt="Uzcard"] {
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 .card-item {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);

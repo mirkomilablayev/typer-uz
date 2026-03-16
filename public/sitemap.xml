@@ -24,7 +24,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <!-- Blog English -->
   <url>
     <loc>https://typer.uz/blog</loc>
@@ -39,60 +38,11 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://typer.uz/blog/how-to-type-faster</loc>
+    <loc>https://typer.uz/blog/how-to-increase-typing-speed</loc>
     <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://typer.uz/blog/touch-typing-vs-hunt-and-peck</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/uzbek-keyboard-layout</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/best-typing-games</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/learn-touch-typing-from-scratch</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/average-typing-speed-by-age</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/what-does-wpm-mean</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/russian-keyboard-layout</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/blog/typing-speed-for-programmers</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Blog Russian -->
   <url>
     <loc>https://typer.uz/ru/blog</loc>
@@ -107,55 +57,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://typer.uz/ru/blog/how-to-type-faster</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/touch-typing-vs-hunt-and-peck</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/uzbek-keyboard-layout</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/best-typing-games</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/learn-touch-typing-from-scratch</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/average-typing-speed-by-age</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/what-does-wpm-mean</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/russian-keyboard-layout</loc>
-    <lastmod>2026-03-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typer.uz/ru/blog/typing-speed-for-programmers</loc>
+    <loc>https://typer.uz/ru/blog/how-to-increase-typing-speed</loc>
     <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

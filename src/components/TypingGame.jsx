@@ -414,15 +414,21 @@ function TypingGame({ lang, setLang }) {
                     </div>
 
                     <div className="donation-grid">
-                        <div className="card-item" onClick={() => copyToClipboard('8600 0000 0000 0000')}>
-                            <div className="card-label">UZCARD / HUMO</div>
-                            <div className="card-number">8600 0000 0000 0000</div>
+                        <div className="card-item" onClick={() => copyToClipboard('5614 6805 0676 3446')}>
+                            <div className="card-top">
+                                <div className="card-label">UZCARD</div>
+                                <img src="/uzcard-logo.png" alt="Uzcard" className="card-logo" />
+                            </div>
+                            <div className="card-number">5614 6805 0676 3446</div>
                             <div className="copy-hint">Click to copy</div>
                         </div>
 
-                        <div className="card-item" onClick={() => copyToClipboard('4444 0000 0000 0000')}>
-                            <div className="card-label">VISA / MASTERCARD</div>
-                            <div className="card-number">4444 0000 0000 0000</div>
+                        <div className="card-item" onClick={() => copyToClipboard('9860 0401 0261 7475')}>
+                            <div className="card-top">
+                                <div className="card-label">HUMO</div>
+                                <img src="/humo-logo.png" alt="Humo" className="card-logo" />
+                            </div>
+                            <div className="card-number">9860 0401 0261 7475</div>
                             <div className="copy-hint">Click to copy</div>
                         </div>
                     </div>
