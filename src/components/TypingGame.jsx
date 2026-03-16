@@ -60,7 +60,7 @@ function TypingGame({ lang, setLang }) {
     }, [lang, mode, modeValue]);
 
     const [targetText, setTargetText] = useState(() =>
-        generateTargetText({ count: 100, difficulty, includePunctuation, includeNumbers })
+        generateTargetText({ count: 100, difficulty, includePunctuation, includeNumbers, lang })
     );
 
     const timeLimit = mode === 'time' ? modeValue : null;
@@ -104,11 +104,12 @@ function TypingGame({ lang, setLang }) {
             count: wordCount,
             difficulty,
             includePunctuation,
-            includeNumbers
+            includeNumbers,
+            lang
         }));
         setIsDistractionFree(false);
         if (containerRef.current) containerRef.current.focus();
-    }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers]);
+    }, [reset, mode, modeValue, difficulty, includePunctuation, includeNumbers, lang]);
 
     // Keyboard Shortcuts (Esc, Tab)
     const handleKeyDown = useCallback((e) => {
@@ -169,7 +170,7 @@ function TypingGame({ lang, setLang }) {
     // If settings change, restart
     useEffect(() => {
         handleRestart();
-    }, [mode, modeValue, difficulty, includePunctuation, includeNumbers, handleRestart]);
+    }, [mode, modeValue, difficulty, includePunctuation, includeNumbers, lang, handleRestart]);
 
     // Copy to clipboard helper
     const copyToClipboard = (text) => {

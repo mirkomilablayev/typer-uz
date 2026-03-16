@@ -57,6 +57,33 @@ export const wordsSets = {
         "microservices", "containerization", "kubernetes", "docker", "pipeline",
         "authentication", "authorization", "cryptography", "distributed",
         "latency", "throughput", "bandwidth", "idempotent", "stateless"
+    ],
+    uz: [
+        "va", "u", "bu", "bilan", "uchun", "ham", "bir", "deb", "o'zi", "esa",
+        "yana", "lekin", "shuning", "agar", "bor", "yo'q", "bo'lib", "bo'lgan", "qiladi",
+        "berdi", "shunday", "qanday", "o'sha", "mana", "hamma", "nima", "qachon", "qayerda",
+        "kim", "chiqdi", "ko'rdi", "aytdi", "keldi", "ketdi", "turli", "ish", "yangi",
+        "kun", "yil", "vaqt", "o'zbekiston", "toshkent", "jahon", "davlat", "shahar",
+        "katta", "kichik", "yaxshi", "yomon", "to'g'ri", "xato", "tez", "sekin", "hammasi",
+        "barcha", "orasida", "tomonidan", "oson", "qiyin", "hayot", "suv", "havo", "yer",
+        "quyosh", "oy", "ulduz", "maktab", "o'qituvchi", "talaba", "ilm", "kitob",
+        "daftar", "qalam", "uy", "oila", "ota", "ona", "bola", "aka", "uka", "opa",
+        "singil", "do'st", "dushman", "odam", "inson", "xalq", "yurt", "vatan",
+        "bayroq", "gerb", "madhiya", "til", "adabiyot", "tarix", "falsafa", "san'at",
+        "musiqa", "teatr", "kino", "sport"
+    ],
+    ru: [
+        "и", "в", "на", "что", "с", "а", "как", "то", "он", "у", "все", "за",
+        "бы", "по", "из", "но", "так", "же", "от", "о", "мы", "было", "вы",
+        "его", "для", "ты", "это", "они", "быть", "только", "уже", "мог", "может",
+        "свой", "кто", "да", "был", "при", "же", "когда", "вот", "над", "без",
+        "под", "перед", "между", "один", "через", "этот", "время", "если", "нет",
+        "глаз", "лицо", "рука", "нога", "слово", "жизнь", "человек", "дом", "город",
+        "страна", "мир", "земля", "вода", "воздух", "солнце", "небо", "звезда",
+        "день", "ночь", "утро", "вечер", "год", "месяц", "неделя", "час", "минута",
+        "секунда", "хорошо", "плохо", "быстро", "медленно", "верно", "ошибка",
+        "учитель", "ученик", "книга", "ручка", "карандаш", "стол", "стул", "окно",
+        "дверь", "дружба", "любовь", "семья", "мама", "папа", "дети", "работа"
     ]
 };
 
@@ -64,9 +91,13 @@ export const generateTargetText = ({
     count = 25,
     difficulty = 'common',
     includePunctuation = false,
-    includeNumbers = false
+    includeNumbers = false,
+    lang = 'en'
 }) => {
-    const baseWords = wordsSets[difficulty] || wordsSets.common;
+    let baseWords = wordsSets[difficulty] || wordsSets.common;
+    if (difficulty === 'common' && (lang === 'uz' || lang === 'ru')) {
+        baseWords = wordsSets[lang] || baseWords;
+    }
     let resultWords = [];
 
     for (let i = 0; i < count; i++) {
