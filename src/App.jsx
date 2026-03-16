@@ -27,9 +27,13 @@ function App() {
       <Route path="/ru" element={<TypingGame lang="ru" setLang={setLang} />} />
       <Route path="/en" element={<TypingGame lang="en" setLang={setLang} />} />
 
-      {/* Blog Routes */}
-      <Route path="/blog" element={<BlogList lang={lang} />} />
-      <Route path="/blog/:slug" element={<BlogPost lang={lang} />} />
+      {/* English Blog Routes */}
+      <Route path="/blog" element={<BlogList lang="en" />} />
+      <Route path="/blog/:slug" element={<BlogPost lang="en" />} />
+
+      {/* Russian Blog Routes */}
+      <Route path="/ru/blog" element={<BlogList lang="ru" />} />
+      <Route path="/ru/blog/:slug" element={<BlogPost lang="ru" />} />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

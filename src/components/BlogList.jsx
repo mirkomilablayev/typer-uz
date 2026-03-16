@@ -3,32 +3,61 @@ import { posts } from '../data/posts';
 import './Blog.css';
 
 function BlogList({ lang }) {
-    const filteredPosts = posts.filter(post => post.lang === lang);
+    const getPostData = (post) => {
+        if (lang === 'ru') {
+            return {
+                title: post.titleRu || post.title,
+                description: post.descriptionRu || post.description,
+                path: `/ru/blog/${post.slug}`
+            };
+        }
+        if (lang === 'uz') {
+            return {
+                title: post.titleUz || post.title,
+                description: post.descriptionUz || post.description,
+                path: `/blog/${post.slug}` // Defaulting to EN path structure but with UZ content if available
+            };
+        }
+        return {
+            title: post.title,
+            description: post.description,
+            path: `/blog/${post.slug}`
+        };
+    };
 
     return (
         <div className="blog-container">
             <header className="blog-header">
-                <h1>Blog</h1>
-                <p>Learn more about typing, tools, and productivity.</p>
+                <h1>{lang === 'ru' ? 'Блог' : lang === 'uz' ? 'Blog' : 'Blog'}</h1>
+                <p>
+                    {lang === 'ru'
+                        ? 'Узнайте больше о типировании, инструментах и продуктивности.'
+                        : lang === 'uz'
+                            ? 'Yozishni o\'rganish, asboblar va samaradorlik haqida ko\'proq ma\'lumot oling.'
+                            : 'Learn more about typing, tools, and productivity.'}
+                </p>
             </header>
 
             <div className="posts-grid">
-                {filteredPosts.length > 0 ? (
-                    filteredPosts.map(post => (
-                        <Link key={post.slug} to={`/blog/${post.slug}`} className="post-card">
+                {posts.map(post => {
+                    const data = getPostData(post);
+                    return (
+                        <Link key={post.slug} to={data.path} className="post-card">
                             <div className="post-date">{new Date(post.date).toLocaleDateString()}</div>
-                            <h2 className="post-title">{post.title}</h2>
-                            <p className="post-description">{post.description}</p>
-                            <div className="read-more">Read More →</div>
+                            <h2 className="post-title">{data.title}</h2>
+                            <p className="post-description">{data.description}</p>
+                            <div className="read-more">
+                                {lang === 'ru' ? 'Читать далее' : lang === 'uz' ? 'Batafsil o\'qish' : 'Read More'} →
+                            </div>
                         </Link>
-                    ))
-                ) : (
-                    <p className="no-posts">No posts available in this language yet.</p>
-                )}
+                    );
+                })}
             </div>
 
             <div className="blog-footer">
-                <Link to={`/${lang}`} className="back-link">← Back to Typing Test</Link>
+                <Link to={lang === 'en' ? '/' : `/${lang}`} className="back-link">
+                    {lang === 'ru' ? '← Назад к тесту' : lang === 'uz' ? '← Testga qaytish' : '← Back to Typing Test'}
+                </Link>
             </div>
         </div>
     );
