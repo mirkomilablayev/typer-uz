@@ -28,6 +28,11 @@ function BlogList({ lang }) {
     return (
         <div className="blog-container">
             <header className="blog-header">
+                <div className="blog-nav-top">
+                    <Link to={lang === 'en' ? '/' : `/${lang}`} className="back-link-top">
+                        {lang === 'ru' ? '← Назад к тесту' : lang === 'uz' ? '← Testga qaytish' : '← Back to Typing Test'}
+                    </Link>
+                </div>
                 <h1>{lang === 'ru' ? 'Блог' : lang === 'uz' ? 'Blog' : 'Blog'}</h1>
                 <p>
                     {lang === 'ru'

@@ -1,9 +1,27 @@
 .blog-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 2rem;
     color: var(--text-color);
     font-family: 'JetBrains Mono', monospace;
+    width: 100%;
+}
+
+.blog-nav-top {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.back-link-top {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.back-link-top:hover {
+    color: var(--accent-color);
 }
 
 .blog-header {

@@ -43,7 +43,7 @@ function BlogPost({ lang }) {
             <article className="post-article">
                 <div className="post-meta">
                     <Link to={data.backPath} className="back-to-blog">
-                        {lang === 'ru' ? '← К блогу' : lang === 'uz' ? '← Blogga' : '← Back to Blog'}
+                        {lang === 'ru' ? '← К списку статей' : lang === 'uz' ? '← Maqolalar ro\'yxatiga' : '← Back to Articles'}
                     </Link>
                     <span className="post-date">{new Date(post.date).toLocaleDateString()}</span>
                 </div>

@@ -171,7 +171,7 @@ function TypingGame({ lang, setLang }) {
 
     return (
         <div
-            className={`app-container ${showFlash ? 'shake' : ''}`}
+            className={`app-container game-view ${showFlash ? 'shake' : ''}`}
             tabIndex={0}
             onKeyDown={handleKeyDown}
             onMouseDown={() => containerRef.current?.focus()}
