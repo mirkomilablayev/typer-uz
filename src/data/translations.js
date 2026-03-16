@@ -28,7 +28,8 @@ export const translations = {
             desc: 'Agar ushbu loyiha sizga yoqsa, ishlab chiquvchini qo\'llab-quvvatlashni ko\'rib chiqing!',
             close: 'Yopish',
             copySuccess: 'Karta raqami nusxalandi!',
-        }
+        },
+        blog: 'Blogni o\'qish'
     },
     ru: {
         modes: {
@@ -59,7 +60,8 @@ export const translations = {
             desc: 'Если вам нравится этот проект, поддержите разработчика!',
             close: 'Закрыть',
             copySuccess: 'Номер карты скопирован!',
-        }
+        },
+        blog: 'Перейти в Блог'
     },
     en: {
         modes: {
@@ -90,6 +92,7 @@ export const translations = {
             desc: 'If you enjoy this project, consider supporting the developer!',
             close: 'Close',
             copySuccess: 'Card number copied to clipboard!',
-        }
+        },
+        blog: 'Check out our Blog'
     }
 };

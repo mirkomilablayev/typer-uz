@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTypingEngine } from '../hooks/useTypingEngine';
 import { generateTargetText } from '../data/words';
@@ -342,7 +342,12 @@ function TypingGame({ lang, setLang }) {
 
                         {/* Blog Link */}
                         <div style={{ marginTop: '2rem' }}>
-                            <a href="/blog" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.8rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '2px' }}>Check out our Blog</a>
+                            <Link
+                                to={lang === 'ru' ? '/ru/blog' : '/blog'}
+                                style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.8rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '2px' }}
+                            >
+                                {t.blog}
+                            </Link>
                         </div>
                     </div>
                 </div>
