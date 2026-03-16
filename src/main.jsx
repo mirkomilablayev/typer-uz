@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter } from 'react-router-dom'
 import { initAnalytics } from './utils/analytics'
+import './fonts.css'
 import './index.css'
 import App from './App.jsx'
 
