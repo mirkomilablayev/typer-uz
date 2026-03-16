@@ -43,21 +43,6 @@ function TypingGame({ lang, setLang }) {
         trackEvent("Typing", "Difficulty Selected", newDifficulty.charAt(0).toUpperCase() + newDifficulty.slice(1));
     };
 
-    // Dynamic SEO Title
-    const pageTitle = useMemo(() => {
-        const base = lang === 'uz' ? 'Typer.uz' : 'Typer.uz';
-        if (mode === 'words') {
-            const label = lang === 'uz' ? `Klaviatura Testi – ${modeValue} so'z` :
-                lang === 'ru' ? `Тест скорости – ${modeValue} слов` :
-                    `Typing Test – ${modeValue} words`;
-            return `${label} | ${base}`;
-        } else {
-            const label = lang === 'uz' ? `Tezlik Testi – Vaqt rejimi` :
-                lang === 'ru' ? `Тест скорости – Время` :
-                    `Typing Test – Time Mode`;
-            return `${label} | ${base}`;
-        }
-    }, [lang, mode, modeValue]);
 
     const [targetText, setTargetText] = useState(() =>
         generateTargetText({ count: 100, difficulty, includePunctuation, includeNumbers, lang })
@@ -189,7 +174,8 @@ function TypingGame({ lang, setLang }) {
         >
             <AnalyticsTracker />
             <Helmet>
-                <title>{pageTitle}</title>
+                <title>Typer.uz – Typing Speed Test | Klaviatura Tezligi Testi | Скорость Печати Онлайн</title>
+                <meta name="description" content="Typer.uz is a free online typing speed test for Uzbek, Russian and English users. Measure typing speed, improve keyboard accuracy and train using different word modes, time modes, punctuation and number challenges." />
             </Helmet>
 
             {/* Brand Header */}
